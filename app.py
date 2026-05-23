@@ -57,8 +57,12 @@ st.set_page_config(
 #     and calls st.warning("⚠️ OpenAQ API key not configured. Using sample data only.")
 # See slide for the exact code.
 
-OPENAQ_API_KEY = ""  # ← DELETE this line and write the try/except instead
-
+try:
+   OPENAQ_API_KEY = st.secrets["OPENAQ_API_KEY"]
+except (KeyError, FileNotFoundError):
+    OPENAQ_API_KEY = ""
+    st.warning("⚠️ OpenAQ API key not configured. Using sample data only.")
+##
 
 # ------------------------------------------------------------------------------
 # === TODO 3 — CATEGORIZE PM2.5 INTO COLORED LABELS ===
