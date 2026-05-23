@@ -396,10 +396,31 @@ st.caption("Based on the current city-average PM2.5 levels.")
 #   else            → 🟣 "STAY INDOORS"          color #7e22ce
 
 # === TODO 6 — YOUR CODE HERE ===
-verdict_emoji = "❓"
-verdict_text = "TODO"
-verdict_color = "#888888"
-detailed_message = "Fill in TODO 6 to see the verdict."
+if avg_pm25 < 12:
+    verdict_emoji = "🟢"
+    verdict_text = "YES — GO ENJOY IT"
+    verdict_color = "#22C55E"
+    detailed_message = "Air quality is excellent. Perfect for outdoor activity."
+elif avg_pm25 < 35:
+    verdict_emoji = "🟡"
+    verdict_text = "MOSTLY OK"
+    verdict_color = "#FFCC4E"
+    detailed_message = "Fine for most. If you have asthma, shorten your session."
+elif avg_pm25 < 55:
+    verdict_emoji = "🟠"
+    verdict_text = "BE CAREFUL"
+    verdict_color = "#FF9800"
+    detailed_message = "Sensitive groups: avoid prolonged outdoor activity."
+elif avg_pm25 < 150:
+    verdict_emoji = "🔴"
+    verdict_text = "NOT TODAY"
+    verdict_color = "#E53935"
+    detailed_message = "Unhealthy. Postpone exercise. Wear an N95."
+else:
+    verdict_emoji = "🟣"
+    verdict_text = "STAY INDOORS"
+    verdict_color = "#7e22ce"
+    detailed_message = "Hazardous. Stay inside, close windows."
 
 
 # ------------------------------------------------------------------------------
