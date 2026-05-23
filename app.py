@@ -32,7 +32,7 @@ from data_fetcher import get_bucharest_air_quality
 # Must be the FIRST Streamlit command in the script
 # ------------------------------------------------------------------------------
 st.set_page_config(
-    page_title="Bucharest Air Quality",         # Text in the browser tab
+    page_title="Alina a facut un website de air quality",         # Text in the browser tab
     page_icon="🌬️",                              # Tab icon (favicon)
     layout="wide",                              # Use the full screen width
     initial_sidebar_state="collapsed",          # Sidebar hidden by default
@@ -116,7 +116,7 @@ df = get_bucharest_air_quality(OPENAQ_API_KEY)
 st.markdown(
     f"""
     <div style="
-        background: linear-gradient(90deg, #0F6E56 0%, #185FA5 100%);
+        background: linear-gradient(90deg, #FF6B6B 0%, #185FA5 100%);
         padding: 20px 32px;
         border-radius: 12px;
         margin-bottom: 24px;
@@ -126,9 +126,9 @@ st.markdown(
         color: white;
     ">
         <div>
-            <div style="font-size: 28px; font-weight: 700;">🌬️ Bucharest Air Quality</div>
+            <div style="font-size: 28px; font-weight: 700;">🌬️ Bukuresti Air Quality</div>
             <div style="font-size: 14px; opacity: 0.9; margin-top: 4px;">
-                Live data from sensors across Bucharest
+                Live data from sensors across Bucharest - built by Alina during SHIFT4IT bootcamp
             </div>
         </div>
         <div style="text-align: right; font-size: 13px; opacity: 0.9;">
@@ -398,7 +398,7 @@ st.caption("Based on the current city-average PM2.5 levels.")
 # === TODO 6 — YOUR CODE HERE ===
 if avg_pm25 < 12:
     verdict_emoji = "🟢"
-    verdict_text = "YES — GO ENJOY IT"
+    verdict_text = "YES — GO ENJOY IT - its a perfect day for outdoor activities"
     verdict_color = "#22C55E"
     detailed_message = "Air quality is excellent. Perfect for outdoor activity."
 elif avg_pm25 < 35:
