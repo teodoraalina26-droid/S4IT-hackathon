@@ -347,7 +347,7 @@ for _, row in df.iterrows():
         fill_color=sensor_category["color"],
         fill_opacity=0.9,
     ).add_to(m)
-)
+
 folium.CircleMarker(
 location=[row["lat"], row["lon"]],
 radius=8,
