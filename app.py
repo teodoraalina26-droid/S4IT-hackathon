@@ -284,8 +284,8 @@ m = folium.Map(
 
 # === TODO 4 — YOUR CODE HERE ===
 heat_data = [
-[row["lat"], row["lon"], row["pm25"]]
-for _, row in df.iterrows()
+    [row["lat"], row["lon"], row["pm25"]]
+    for _, row in df.iterrows()
 ]
 
 
@@ -331,7 +331,32 @@ HeatMap(
 #      …and call .add_to(m) at the end
 
 # === TODO 5 — YOUR CODE HERE ===
-# (a for loop over df.iterrows() goes here — see slide)
+for _, row in df.iterrows():
+    sensor_category = get_air_quality_category(row["pm25"])
+    popup_html = (
+        f"<b>{row['station']}</b><br>"
+        f"PM2.5: {row['pm25']} μg/m³<br>"
+        f"{sensor_category['label']}"
+    )
+    folium.CircleMarker(
+        location=[row["lat"], row["lon"]],
+        radius=8,
+        popup=folium.Popup(popup_html, max_width=250),
+        tooltip=f"{row['station']}: {row['pm25']} μg/m³",
+        color="white", weight=2, fill=True,
+        fill_color=sensor_category["color"],
+        fill_opacity=0.9,
+    ).add_to(m)
+)
+folium.CircleMarker(
+location=[row["lat"], row["lon"]],
+radius=8,
+popup=folium.Popup(popup_html, max_width=250),
+tooltip=f"{row['station']}: {row['pm25']} μg/m³",
+color="white", weight=2, fill=True,
+fill_color=sensor_category["color"],
+fill_opacity=0.9,
+).add_to(m)
 
 
 # ------------------------------------------------------------------------------
